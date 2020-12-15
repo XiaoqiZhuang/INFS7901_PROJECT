@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+  body{
+  background-image: url("/static/img/nbabg.jpg");
+  background-size: cover;
+  background-attachment:fixed;
+  }
+</style>
+
+<h3 style="color: aliceblue">History</h3>
+<table class="table table-hover table-dark" >
+  <thead  >
+  <tr>
+      <th>Operation</th>
+      <th>Team_Name</th>
+      <th>Player</th>
+      <th>Age</th>
+      <th>Nationality</th>
+      <th>Salary($)</th>
+      <th>Position</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for post in posts %}
+      <tr>
+        <td>{{post.Operation}}</td>
+        <td>{{post.Team_Name}}</td>
+        <td>{{post.Player_name}}</td>
+        <td>{{post.Player_Age }}</td>
+        <td>{{post.Nationality }}</td>
+        <td>{{post.Salary }}</td>
+        <td>{{post.Position }}</td>
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

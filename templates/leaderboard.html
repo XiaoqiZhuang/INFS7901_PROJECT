@@ -1,0 +1,215 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    background-image: url("/static/img/nbabg.jpg"); 
+    background-attachment:fixed;
+    background-size: cover; 
+}
+
+table{
+  background: rgb(255, 255, 255);
+  opacity: 0.7;
+}
+th,td {border:1px solid rgb(0, 0, 0);color: rgb(0, 0, 0);} 
+
+section{
+  display:flex;
+  padding: 20px;
+}
+section div{
+  float:left;
+  margin:10px;
+}
+
+</style>
+</head>
+<section>
+<div >
+  <table >
+    <thead >
+    <tr >
+      <th>Name</th>
+      <th>Points</th>
+    </tr>
+    {% for post in posts[0] %}
+      <tr >
+        <td>{{post.Player_name}}</td>
+        <td>{{post.Points }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+<div >
+  <table >
+    <thead >
+    <tr >
+      <th>Name</th>
+      <th>Assists</th>
+    </tr>
+    {% for post in posts[1] %}
+      <tr >
+        <td>{{post.Player_name}}</td>
+        <td>{{post.Assists }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+<div >
+    <table >
+      <thead >
+      <tr >
+        <th>Name</th>
+        <th>Rebunds</th>
+      </tr>
+      {% for post in posts[2] %}
+        <tr >
+          <td>{{post.Player_name}}</td>
+          <td>{{post.Rebunds }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div >
+      <table >
+        <thead >
+        <tr >
+          <th>Name</th>
+          <th>Blocks</th>
+        </tr>
+        {% for post in posts[3] %}
+          <tr >
+            <td>{{post.Player_name}}</td>
+            <td>{{post.Blocks }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div >
+        <table >
+          <thead >
+          <tr >
+            <th>Name</th>
+            <th>Steals</th>
+          </tr>
+          {% for post in posts[4] %}
+            <tr >
+              <td>{{post.Player_name}}</td>
+              <td>{{post.Steals }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div >
+          <table >
+            <thead >
+            <tr >
+              <th>Name</th>
+              <th>Turnovers</th>
+            </tr>
+            {% for post in posts[5] %}
+              <tr >
+                <td>{{post.Player_name}}</td>
+                <td>{{post.Turnovers }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+</section>
+<section>
+  <div >
+      <table >
+        <thead >
+        <tr >
+          <th>Name</th>
+          <th>FG%</th>
+        </tr>
+        {% for post in posts[6] %}
+          <tr >
+            <td>{{post.Player_name}}</td>
+            <td>{{post.FG }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div >
+        <table >
+          <thead >
+          <tr >
+            <th>Name</th>
+            <th>3P%</th>
+          </tr>
+          {% for post in posts[7] %}
+            <tr >
+              <td>{{post.Player_name}}</td>
+              <td>{{post.three}}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div >
+          <table >
+            <thead >
+            <tr >
+              <th>Name</th>
+              <th>FT%</th>
+            </tr>
+            {% for post in posts[10] %}
+              <tr >
+                <td>{{post.Player_name}}</td>
+                <td>{{post.FT}}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      <div >
+          <table >
+            <thead >
+            <tr >
+              <th>Name</th>
+              <th>OWS</th>
+            </tr>
+            {% for post in posts[8] %}
+              <tr >
+                <td>{{post.Player_name}}</td>
+                <td>{{post.OWS}}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div >
+            <table >
+              <thead >
+              <tr >
+                <th>Name</th>
+                <th>DWS</th>
+              </tr>
+              {% for post in posts[9] %}
+                <tr >
+                  <td>{{post.Player_name}}</td>
+                  <td>{{post.DWS}}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+          <div >
+              <table >
+                <thead >
+                <tr >
+                  <th>Name</th>
+                  <th>Salary($)</th>
+                </tr>
+                {% for post in posts[11] %}
+                  <tr >
+                    <td>{{post.Player_name}}</td>
+                    <td>{{post.Salary}}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+</section>
+{% endblock content %}

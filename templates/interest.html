@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+
+
+div.polaroid {  
+  width: 400px;   
+  height:700px;
+  background-color: white;   
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+  margin-bottom: 20px; 
+  padding: 10px 30px
+}   
+div.con { 
+  text-align: left;   
+}   
+
+section{
+  display:flex;
+}
+section div{
+  float:left;
+  margin:20px;
+}
+
+
+</style>
+</head>
+
+  <section>
+    <div class="polaroid" >  
+      <h3>Do you know who has improved his points the most?</h3>  
+      <img src="/static/img/HARDEN.jpg" alt="HARDEN" style="width:100%;height: 57%">  
+      <div class="con">
+        {% for post in posts[0] %}
+          <p>{{ post.Player_name }} increased {{ post.improve }} points per game. He has already got {{ post.p1 }} points and became the best scorer in the previous season. However, he continued to improve and increased his points to {{ post.p2 }} points per game this season.</p> 
+        {% endfor %}
+      </div>  
+    </div> 
+  
+  
+    <div class="polaroid" >  
+      <h3>Do you know the average points of NBA players in these two seasons?</h3>  
+      <img src="/static/img/young.gif" alt="young" style="width:100%">  
+      <div class="con">
+      <table class="table table-hover">
+        <thead >
+        <tr >
+          <th>Season</th>
+          <th>Average Points</th>
+        </tr>
+        {% for post in posts[1] %}
+          <tr >
+            <td>{{post.Season}}</td>
+            <td>{{post.Average }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      </div>  
+    </div> 
+  
+  <div class="polaroid" >  
+    <h3>Do you know who have the highest OWS but are not in the Points Leaderboard?</h3>  
+  <img src="/static/img/Capela.jpg" alt="Capela" style="width:100%; height:50% ;">  
+  <div class="con">
+    <table class="table table-hover">
+      <thead >
+      <tr >
+        <th>Player</th>
+        <th>Season</th>
+        <th>Points</th>
+        <th>OWS</th>
+      </tr>
+      {% for post in posts[2] %}
+        <tr >
+          <td>{{post.Player_name}}</td>
+          <td>{{post.sea }}</td>
+          <td>{{post.Points }}</td>
+          <td>{{post.OWS }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>  
+  </div> 
+</section>
+
+<section>
+  <div class="polaroid" >  
+    <h3>Do you know which team has the highest salary for the 2018-19 season? </h3>  
+    <img src="/static/img/worriors.jpeg" alt="worriors" style="width:100%">  
+    <div class="con">
+      {% for post in posts[3] %}
+        <p>{{post.Team_Name }} will pay the amount as ${{post.sum }} in the 2018-19 season.</p>
+      {% endfor %}
+    </div>  
+  </div> 
+
+  <div class="polaroid" >  
+    <h3>Do you know the player who got the highest points besides those in the top 10 salary? </h3>  
+    <img src="/static/img/Harries.jpg_large" alt="Harries" style="width:100%;height: 65%;">  
+    <div class="con">
+      {% for post in posts[4] %}
+        <p>{{post.Player_name }} is a very underrated player, who got {{post.Points}} points per game but his salary was just ${{post.Salary}}.</p>
+      {% endfor %}
+    </div>  
+  </div> 
+
+  <div class="polaroid" >  
+    <h3>Do you know which team has improved their attack or defense most this season? </h3>  
+    <section>
+    <img src="/static/img/boston.jpg" alt="boston" style="width:50%;height: 25%;">  
+    <img src="/static/img/warriors.jpg" alt="warriors" style="width:50%;height:25% ;">
+    </section>
+    <div class="con">
+      {% for post in posts[5] %}
+        <p>{{post.Team_Name }} has improved {{post.attack}} points in the average points per game.</p>
+      {% endfor %}
+      {% for post in posts[6] %}
+        <p>Although {{post.Team_Name }} has increased {{post.defense}} points in the average losing points per game, but that is the fewest of any team.</p>
+      {% endfor %}
+    </div>  
+  </div> 
+
+</section>
+
+<section>
+  <div class="polaroid" >  
+    <h3>Do you know the player who has engaged in all seasons? </h3>  
+    <img src="/static/img/Harden.webp"  style="width:100%">  
+    <div class="con">
+      {% for post in posts[7] %}
+        <p>{{post.Player_name }}</p>
+      {% endfor %}
+    </div>  
+  </div> 
+
+  <div class="polaroid" >  
+    <h3>Do you know players from Australia? </h3>  
+    <img src="/static/img/simons.png" alt="simons" style="width:100%"> 
+    <div class="con">
+      {% for post in posts[8] %}
+        <p>{{post.Player_name }}</p>
+      {% endfor %}
+    </div>  
+  </div> 
+
+  <div class="polaroid" >  
+    <h3>Do you know how many years each manager worked for his team? </h3>  
+    <section>
+    <img src="/static/img/anji.jpg" alt="anji" style="width:100%">  
+    </section>
+    <div class="con">
+      <table >
+        <thead >
+        <tr >
+          <th>Manager</th>
+          <th>Team</th>
+          <th>Time</th>
+        </tr>
+        {% for post in posts[9] %}
+          <tr >
+            <td>{{post.Ename}}</td>
+            <td>{{post.team }}</td>
+            <td>{{post.Time_in_job }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>  
+  </div> 
+
+</section>
+
+
+
+
+</html> 
+{% endblock content %}

@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body{
+    background-image: url("/static/img/nbabg.jpg");
+    background-size: cover; 
+    background-attachment:fixed
+}
+    select{
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.8;
+    }
+
+    </style>
+  </head>
+<body>
+    <div style="height:60px;padding: 10px;">
+        <select id="team_select" onchange="changeTeam(this)" value="{{choosedTeam}}">
+            <option value="">Please Select Team</option>
+            {% for team in selectTeams %}
+                <option value="{{team.Team_Name}}" >{{team.Team_Name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+	<div>
+<!--        Team-->
+        
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Team </th>
+                <th>City</th>
+                <th>Team Area</th>
+                <th>Rank</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td>{{team.Team_Name}}</td>
+                    <td>{{team.City }}</td>
+                    <td>{{team.Team_Area }}</td>
+                    <td>{{team.Rank }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+<!--        player-->
+        
+        <table class="table table-hover table-dark" style="  opacity: 0.8;" >
+            <thead  >
+            <tr>
+                <th>Player</th>
+                <th>Uniform number</th>
+                <th>Age</th>
+                <th>Nationality</th>
+                <th>Salary($)</th>
+                <th>Position</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in players %}
+                <tr>
+                  <td>{{player.Player_name}}</td>
+                  <td>{{player.Uniform_number}}</td>
+                  <td>{{player.Player_Age }}</td>
+                  <td>{{player.Nationality }}</td>
+                  <td>{{player.Salary }}</td>
+                  <td>{{player.Position }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+<!--        stat-->
+
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Season</th>
+                <th>Average attack</th>
+                <th>Average defense</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for teamStat in teamStats %}
+                <tr>
+                    <td>{{teamStat.Season}}</td>
+                    <td>{{teamStat.Average_attack }}</td>
+                    <td>{{teamStat.Average_defense }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+<!--        manager -->
+
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Manager</th>
+                <th>Time in job</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for manager in managers %}
+                <tr>
+                    <td>{{manager.Ename}}</td>
+                    <td>{{manager.Time_in_job}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!--        coach -->
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Coach</th>
+                <th>Position</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for coach in coaches %}
+                <tr>
+                    <td>{{coach.Ename}}</td>
+                    <td>{{coach.Position}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!--        boss -->
+
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Boss</th>
+                <th>Company</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for boss in bosses %}
+                <tr>
+                    <td>{{boss.Ename}}</td>
+                    <td>{{boss.Company}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!--        mascot -->
+
+        <table class="table table-hover table-dark" style="  opacity: 0.8;">
+            <thead >
+            <tr>
+                <th>Mascot</th>
+                <th>Appearance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mascot in mascots %}
+                <tr>
+                    <td>{{mascot.Ename}}</td>
+                    <td>{{mascot.Appearance}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script>
+ function changeTeam(obj){
+     window.location.href = "http://127.0.0.1:5000/team?teamName="+$(obj).val();
+     // $(".team_data").hide();
+     // console.log($("#team_select").val());
+     // $(document.getElementById($("#team_select").val())).show();
+     // $("#"+$("#team_select").val()).show();
+ }
+</script>
+</html>
+{% endblock content %}
